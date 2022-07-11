@@ -251,3 +251,17 @@ fclose(fp);
 
 }
 //End function for generating Gaussian random numbers
+double var(char*str){
+FILE* fp=fopen(str,"r");
+double b;
+int count=0;
+double t;
+double squares=0;
+while(fscanf(fp, "%lf", &t)!=-1){
+        count+=1;
+        squares=squares+(t*t);
+    }
+    b=(squares/count)-(mean(str)*mean(str));
+    fclose(fp);
+    return b;
+}
